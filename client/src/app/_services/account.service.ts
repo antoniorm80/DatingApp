@@ -1,3 +1,4 @@
+import { HomeComponent } from './../home/home.component';
 import { User } from './../_models/user';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -33,8 +34,7 @@ export class AccountService {
         if (user) {
           localStorage.setItem('user', JSON.stringify(user));
           this.currentUserSource.next(user);
-        }
-        
+        }        
         return user;
       })
     )
@@ -49,5 +49,4 @@ export class AccountService {
     localStorage.removeItem('user');
     this.currentUserSource.next(null);
   }
-
 }
